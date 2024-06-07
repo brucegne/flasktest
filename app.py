@@ -66,7 +66,3 @@ def update_contact():
    result = requests.put(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{key}.json",data=json.dumps(rec))
    print (result)
    return redirect("/")
-
-if __name__ == '__main__':
-   app.run(debug=True, host='0.0.0.0', port=5000)
-
