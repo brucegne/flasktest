@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, json, Response,redirect,flash,url_for
-from flask_bootstrap import Bootstrap5
+from flask_bootstrap import Bootstrap
 import pyrebase
 
 
