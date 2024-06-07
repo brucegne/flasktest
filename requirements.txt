@@ -2,3 +2,4 @@ Flask
 flask-bootstrap
 Gunicorn
 Requests
+pyrebase4
