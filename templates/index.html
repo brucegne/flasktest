@@ -34,7 +34,7 @@
 	<hr size=3 color='#ff0000' />
 	<a href="/">Home</a>
 	<a href="/new" >Add New</a>
-	<select onchange="alert(this.key_val);">
+	<select onchange="alert(this)">
 		{% for user in users %}
 			<option value="{{ user['kv'] }}">{{ user["name"] }} </option>
 		{% endfor %}
