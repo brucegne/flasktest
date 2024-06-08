@@ -34,6 +34,11 @@
 	<hr size=3 color='#ff0000' />
 	<a href="/">Home</a>
 	<a href="/new" >Add New</a>
+	<select>
+		{% for user in users %}
+			<option value="{{ user['kv'] }}">{{ user["name"] }} </option>
+		{% endfor %
+	</select>}
 	<hr size=3 color='#ff0000' />
 
 	<h1>Family Member List</h1>
