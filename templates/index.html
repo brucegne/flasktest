@@ -34,7 +34,7 @@
 	<hr size=3 color='#ff0000' />
 	<a href="/">Home</a>
 	<a href="/new" >Add New</a>
-	<select onchange="alert(this)">
+	<select onchange="editRec(this)">
 		{% for user in users %}
 			<option value="{{ user['kv'] }}">{{ user["name"] }} </option>
 		{% endfor %}
@@ -63,6 +63,12 @@
 	function removeIt(key_val) {
 		console.log(key_val);
 		window.location.assign("/delete/" + key_val);
+	}
+
+	function EditRec(selectObject) {
+		var selectIdx = selectObject.selectIndex;
+		var key_val = selectObject.options[selectIdx.value; 
+		window.location.assign("/edit/" + key_val);
 	}
 
 </script>
