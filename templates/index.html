@@ -34,11 +34,13 @@
 	<hr size=3 color='#ff0000' />
 	<a href="/">Home</a>
 	<a href="/new" >Add New</a>
-	<select style="padding-left: 20px;" id="editKey" name="editKey" onchange="editRec(this)">
-		{% for user in users %}
-			<option value="{{ user['kv'] }}">{{ user["name"] }} </option>
-		{% endfor %}
-	</select>
+	<dpan style="padding-left: 25px;">
+		<select style="padding-left: 20px;" id="editKey" name="editKey" onchange="editRec(this)">
+			{% for user in users %}
+				<option value="{{ user['kv'] }}">{{ user["name"] }} </option>
+			{% endfor %}
+		</select>
+	</dpan>
 	<hr size=3 color='#ff0000' />
 
 	<h1>Family Member List</h1>
