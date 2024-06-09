@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, json, Response,redirect,flash,url_for
 from flask import Flask
-
-
 import requests, json
 
 kv=""
@@ -60,7 +58,7 @@ def update_contact():
    email=request.form['email']
    comments=request.form['comments']
    try:
-      toDelete = request.form['toDelete']
+      toDelete = request.form['toDelete'] || "X"
    except:
       print("Not deleted")
    if (toDelete == "deleteMe"):
