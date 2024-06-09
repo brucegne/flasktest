@@ -58,7 +58,7 @@ def update_contact():
    email=request.form['email']
    comments=request.form['comments']
    try:
-      toDelete = request.form['toDelete'] || "X"
+      toDelete = request.form['toDelete'] or "X"
    except:
       print("Not deleted")
    if (toDelete == "deleteMe"):
