@@ -59,9 +59,8 @@ def update_contact():
    email=request.form['email']
    comments=request.form['comments']
    toDelete = request.form['toDelete']
-   if (toDelete == 'deleteMe') {
+   if (toDelete == "deleteMe"):
       return redirect("/delete/"+key)
-   }
    rec = {}
    rec['key'] = key
    rec["name"] = name
