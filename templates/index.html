@@ -36,6 +36,7 @@
 	<a href="/new" >Add New</a>
 	<dpan style="padding-left: 25px;">
 		<select style="padding-left: 20px;" id="editKey" name="editKey" onchange="editRec(this)">
+			<option value="X">Select Contact</option>
 			{% for user in users %}
 				<option value="{{ user['kv'] }}">{{ user["name"] }} </option>
 			{% endfor %}
@@ -69,7 +70,9 @@
 
 	function editRec() {
 		kv=(document.getElementById("editKey").value);
-		window.location.assign("/edit/" + kv);
+		if(kv != 'X'){
+			window.location.assign("/edit/" + kv);
+		}
 	}
 
 </script>
