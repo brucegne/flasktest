@@ -61,11 +61,12 @@ def update_contact():
    toDelete = request.form['toDelete']
    if (toDelete == "deleteMe"):
       return redirect("/delete/"+key)
-   rec = {}
-   rec['key'] = key
-   rec["name"] = name
-   rec['email'] = email
-   rec["comments"] = comments
-   result = requests.put(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{key}.json",data=json.dumps(rec))
-   print (result)
-   return redirect("/")
+   else:
+      rec = {}
+      rec['key'] = key
+      rec["name"] = name
+      rec['email'] = email
+      rec["comments"] = comments
+      result = requests.put(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{key}.json",data=json.dumps(rec))
+      print (result)
+      return redirect("/")
