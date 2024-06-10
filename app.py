@@ -57,10 +57,7 @@ def update_contact():
    name=request.form['name']
    email=request.form['email']
    comments=request.form['comments']
-   try:
-      toDelete = request.form['toDelete'] or "X"
-   except:
-      print("Not deleted")
+   toDelete = request.form['toDelete'] or "X"
    if (toDelete == "deleteMe"):
       print(key)
       return redirect("/delete/"+key)
