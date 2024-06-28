@@ -5,18 +5,22 @@ import requests, json
 kv=""
 
 dburl="https://socialpancakes-d1dad.firebaseio.com/bdata/Users/.json"
+dbqry="https://socialpancakes-d1dad.firebaseio.com/bdata/Users/.json?orderBy=name"
 key_url=(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{kv}.json")
+
+fburl="https://us-central1-fship-app.cloudfunctions.net/app/";
+fbqry="https://us-central1-fship-app.cloudfunctions.net/app";
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-   result = requests.get(dburl).json()
+   result = requests.get(fburl).json()
    resOut=[]
    for usr in result:
-      user = result[usr]
+      user = usr
       rec = {}
-      rec['kv'] = usr
+      rec['kv'] = user['key']
       rec["name"] = user["name"]
       rec['email'] = user['email']
       rec["comments"] = user["comments"]
@@ -36,17 +40,17 @@ def NewCont():
    rec["name"] = name
    rec['email'] = email
    rec["comments"] = comments
-   result = requests.post(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/.json",data=json.dumps(rec))
+   result = requests.post(fburl,data=rec)
    return redirect("/")
 
 @app.route('/delete/<kv>')
 def deleteRec(kv):
-   result = requests.delete(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{kv}.json")
+   result = requests.delete(fburl+kv)
    return redirect("/")
 
 @app.route('/edit/<kv>')
 def editRec(kv):
-   result = requests.get(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{kv}.json").json()
+   result = requests.get(fburl+kv).json()
    print(result)
    return render_template("edit.html", key=kv, user=result)
 
@@ -70,13 +74,13 @@ def update_contact():
       rec["name"] = name
       rec['email'] = email
       rec["comments"] = comments
-      result = requests.put(f"https://socialpancakes-d1dad.firebaseio.com/bdata/Users/{key}.json",data=json.dumps(rec))
-      print (result)
+      result = requests.put(fburl+key,data=rec)
+#      print (result.json())
       return redirect("/")
 
-"""
 
+"""
 if __name__ == '__main__':
    app.run(debug=True, port=8000)
-
 """
+
