@@ -1,5 +1,6 @@
 Flask
 flask-bootstrap
+sqlite3
 Gunicorn
 Requests
 pyrebase4
